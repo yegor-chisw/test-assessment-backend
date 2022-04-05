@@ -5,3 +5,9 @@ To get the Node server running locally
 - Create .env file and set your global variables
 - <mark>npm run seed</mark> to fill up the database
 - <mark>npm run dev</mark> to start the local server
+
+# .env example
+MONGO_HOST=
+MONGO_PORT=
+MONGO_DB=
+PORT=
