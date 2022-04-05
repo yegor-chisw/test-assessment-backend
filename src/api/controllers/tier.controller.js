@@ -3,14 +3,14 @@ const tierService = require('../services/tier.service');
 exports.getAll = async (req, res, next) => {
   const tiers = await tierService.findAllTiers();
 
-  res.json(tiers);
+  res.send(tiers);
 };
 
 exports.getByPid = async (req, res, next) => {
-  const tid = +req.params.tid;
-  const pid = +req.params.pid;
+  const tid = parseInt(req.params.tid, 10);
+  const pid = parseInt(req.params.pid, 10);
 
-  const tiers = await tierService.findWithButtonsStyles(tid, pid);
+  const tiers = await tierService.findWithButton(tid, pid);
 
-  res.json(tiers);
+  res.send(tiers);
 };
