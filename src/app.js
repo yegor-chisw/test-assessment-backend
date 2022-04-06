@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const tierRoutes = require('./api/routes/tier.route');
@@ -8,9 +9,10 @@ require('dotenv/config');
 
 const app = express();
 
-app.use('/tiers', tierRoutes);
-
+app.use(cors());
 app.use(bodyParser);
+
+app.use('/tiers', tierRoutes);
 
 const { MONGO_HOST, MONGO_PORT, MONGO_DB, PORT } = process.env;
 const uri = `mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}`;
